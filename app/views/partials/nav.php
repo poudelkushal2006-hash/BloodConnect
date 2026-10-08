@@ -13,12 +13,6 @@
                 </a>
             </div>
             <div class="flex items-center space-x-4">
-                <?php
-                if (session_status() === PHP_SESSION_NONE) {
-                    session_start();
-                }
-                ?>
-                
                 <?php if (isset($_SESSION['donor_id'])): ?>
                     <span class="text-sm font-medium text-gray-700">Hi, <?= htmlspecialchars(explode(' ', trim($_SESSION['donor_name']))[0]) ?></span>
                     <a href="/donor/profile" class="text-sm font-medium text-gray-600 hover:text-red-600">My Profile</a>
