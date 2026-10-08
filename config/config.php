@@ -1,15 +1,18 @@
 <?php
 // config/config.php
+
 return [
     'db' => [
-        'host' => '127.0.0.1',
-        'dbname' => 'bloodconnect',
-        'user' => 'root',
-        'pass' => '',
+        'host' => getenv('MYSQLHOST') ?: '127.0.0.1',
+        'dbname' => getenv('MYSQLDATABASE') ?: 'bloodconnect',
+        'user' => getenv('MYSQLUSER') ?: 'root',
+        'pass' => getenv('MYSQLPASSWORD') ?: '',
+        'port' => getenv('MYSQLPORT') ?: '3306',
         'charset' => 'utf8mb4'
     ],
+
     'app' => [
-        'url' => 'http://localhost/bloodconnect/public', // Update this based on your setup
-        'env' => 'development'
+        'url' => getenv('APP_URL') ?: 'http://localhost/bloodconnect/public',
+        'env' => getenv('APP_ENV') ?: 'development'
     ]
 ];
